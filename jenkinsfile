@@ -1,11 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-    DOCKERHUB_USERNAME = credentials('DOCKERHUB_CREDENTIAL_ID').username
-    DOCKERHUB_PASSWORD = credentials('DOCKERHUB_CREDENTIAL_ID').password
-  }
-
   stages {
     stage('Checkout') {
       steps {
@@ -32,8 +27,10 @@ pipeline {
 
     stage('Push Images to Docker Hub') {
       steps {
-        sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-        sh 'docker-compose -f docker-compose.yml push'
+        withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+          sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
+          sh 'docker-compose -f docker-compose.yml push'
+        }
       }
     }
 
@@ -46,13 +43,13 @@ pipeline {
 
   post {
     success {
-      // Send email notification on pipeline completion
       emailext body: 'The pipeline has finished.',
+        subject: 'Pipeline Success',
         to: 'abdelkarimsemlali67@gmail.com'
     }
     failure {
-      // Send email notification on pipeline failure
       emailext body: 'The pipeline has failed.',
+        subject: 'Pipeline Failure',
         to: 'abdelkarimsemlali67@gmail.com'
     }
   }
