@@ -13,7 +13,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        bat 'docker-compose -f docker-compose.yml build --build-arg IMAGE_NAME=myapp:v1.0'
+        bat 'docker-compose -f docker-compose.yml build'
         bat 'start docker-compose -f docker-compose.yml up -d'
       }
     }
@@ -27,7 +27,7 @@ pipeline {
     stage('Push Images to Docker Hub') {
       steps {
         bat 'echo %DOCKERHUB_CREDENTIALS_PSW%| docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
-        bat 'docker push ash0semlali/myapp:v1.0'
+        bat 'docker push ash0semlali/pfea8_pipeline-web'
       }
     }
 
