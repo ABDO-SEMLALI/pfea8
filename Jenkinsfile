@@ -3,15 +3,15 @@ pipeline {
 
   stages {
     stage('Checkout code') {
-        steps {
-            checkout scm
-        }
+      steps {
+        checkout scm
+      }
     }
 
     stage('Build') {
       steps {
-        sh 'docker-compose -f docker-compose.yml build'
-        sh 'docker-compose -f docker-compose.yml up -d'
+        bat 'docker-compose -f docker-compose.yml build'
+        bat 'start docker-compose -f docker-compose.yml up -d'
       }
     }
 
@@ -19,7 +19,7 @@ pipeline {
       steps {
         script {
           docker.image('php_web').inside {
-            sh 'echo "test passed"'
+            bat 'echo "test passed"'
           }
         }
       }
@@ -28,15 +28,15 @@ pipeline {
     stage('Push Images to Docker Hub') {
       steps {
         withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-          sh 'docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD'
-          sh 'docker-compose -f docker-compose.yml push'
+          bat 'docker login -u %DOCKERHUB_USERNAME% -p %DOCKERHUB_PASSWORD%'
+          bat 'docker-compose -f docker-compose.yml push'
         }
       }
     }
 
     stage('Cleanup') {
       steps {
-        sh 'docker-compose -f docker-compose.yml down'
+        bat 'docker-compose -f docker-compose.yml down'
       }
     }
   }
