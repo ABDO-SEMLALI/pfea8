@@ -19,7 +19,7 @@ pipeline {
       steps {
         script {
           docker.image('php_web').inside {
-            bat 'echo "test passed"'
+            sh 'echo "test passed"'
           }
         }
       }
