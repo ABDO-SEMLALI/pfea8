@@ -13,7 +13,7 @@ pipeline {
 
     stage('Build') {
       steps {
-        bat 'docker-compose -f docker-compose.yml build -t ash0semlali/pfea8'
+        bat 'docker-compose -f docker-compose.yml build'
         bat 'start docker-compose -f docker-compose.yml up -d'
       }
     }
