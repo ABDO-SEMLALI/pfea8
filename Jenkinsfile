@@ -2,10 +2,10 @@ pipeline {
   agent any
 
   stages {
-    stage('Checkout') {
-      steps {
-        git 'https://github.com/ABDO-SEMLALI/pfea8.git'
-      }
+    stage('Checkout code') {
+        steps {
+            checkout scm
+        }
     }
 
     stage('Build') {
