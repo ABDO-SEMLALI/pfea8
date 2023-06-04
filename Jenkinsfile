@@ -18,7 +18,7 @@ pipeline {
     stage('Test') {
       steps {
         script {
-          docker.image('myapp:v1.0').inside {
+          docker.image('php_web').inside {
             sh 'echo "test passed"'
           }
         }
