@@ -1,6 +1,9 @@
 pipeline {
   agent any
 
+  environment {
+    DOCKERHUB_CREDENTIALS = credentials('dockerhub')
+  }
   stages {
     stage('Checkout code') {
       steps {
@@ -23,10 +26,8 @@ pipeline {
 
     stage('Push Images to Docker Hub') {
       steps {
-        withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIAL_ID', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-          bat 'docker login -u %DOCKERHUB_USERNAME% -p %DOCKERHUB_PASSWORD%'
-          bat 'docker-compose -f docker-compose.yml push'
-        }
+        bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+        bat 'docker push lloydmatereke/jenkins-docker-hub'
       }
     }
 
