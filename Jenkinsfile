@@ -26,8 +26,10 @@ pipeline {
 
     stage('Push Images to Docker Hub') {
       steps {
+        bat 'echo %DOCKERHUB_CREDENTIALS_PSW%'
+        bat 'echo %DOCKERHUB_CREDENTIALS_USR%'
         bat 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
-      bat 'docker push ash0semlali/jenkins-docker-hub'
+        bat 'docker push ash0semlali/jenkins-docker-hub'
       }
     }
 
