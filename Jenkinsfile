@@ -17,11 +17,8 @@ pipeline {
 
     stage('Test') {
       steps {
-        script {
-          docker.image('php_web').inside {
-            sh 'echo "test passed"'
-          }
-        }
+        bat 'docker-compose -f docker-compose.yml exec web npx cypress run'
+
       }
     }
 
