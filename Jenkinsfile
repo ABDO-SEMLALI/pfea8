@@ -27,8 +27,7 @@ pipeline {
     stage('Push Images to Docker Hub') {
       steps {
         bat 'echo %DOCKERHUB_CREDENTIALS_PSW%| docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
-        bat 'docker tag pfea8_pipeline-web:latest ash0semlali/pfea8:latest'
-        bat 'docker push ash0semlali/pfea8:latest'
+        bat 'docker-compose push'
       }
     }
 
