@@ -45,9 +45,9 @@ pipeline {
       ''', subject: 'Sujet : Réussite du pipeline Jenkins', to: 'abdelkarimsemlali67@gmail.com'
     }
     failure {
-      mail bcc: '', body: '''Le pipeline Jenkins a échoué. 
+      mail bcc: '', body: '''Le pipeline Jenkins a echoue. 
       Veuillez prendre les mesures nécessaires pour résoudre le problème.
-      ''', subject: 'Sujet : Échec du pipeline Jenkins', to: 'abdelkarimsemlali67@gmail.com'
+      ''', subject: 'Sujet : Echec du pipeline Jenkins', to: 'abdelkarimsemlali67@gmail.com'
     }
   }
 }
