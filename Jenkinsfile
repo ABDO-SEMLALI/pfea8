@@ -13,8 +13,8 @@ pipeline {
 
     stage('Build') {
       steps {
-        bat 'docker-compose -f docker-compose.yml build'
-        bat 'start docker-compose -f docker-compose.yml up -d'
+        bat 'docker-compose build'
+        bat 'start docker-compose up -d'
       }
     }
 
@@ -33,21 +33,21 @@ pipeline {
 
     stage('Cleanup') {
       steps {
-        bat 'docker-compose -f docker-compose.yml down'
+        bat 'docker-compose down'
       }
     }
   }
 
   post {
     success {
-      emailext body: 'The pipeline has finished.',
-        subject: 'Pipeline Success',
-        to: 'abdelkarimsemlali67@gmail.com'
+      mail bcc: '', body: '''Le pipeline Jenkins s\'est exécuté avec succès. 
+      Tout s\'est déroulé sans erreur.
+      ''', subject: 'Sujet : Réussite du pipeline Jenkins', to: 'abdelkarimsemlali67@gmail.com'
     }
     failure {
-      emailext body: 'The pipeline has failed.',
-        subject: 'Pipeline Failure',
-        to: 'abdelkarimsemlali67@gmail.com'
+      mail bcc: '', body: '''Le pipeline Jenkins a échoué. 
+      Veuillez prendre les mesures nécessaires pour résoudre le problème.
+      ''', subject: 'Sujet : Échec du pipeline Jenkins', to: 'abdelkarimsemlali67@gmail.com'
     }
   }
 }
