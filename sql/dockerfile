@@ -1,16 +1,10 @@
-# Use the official MySQL image as the base image
 FROM mysql:5.7
-
-# Environment variables for configuring MySQL
 
 ENV MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
 ENV MYSQL_DATABASE: pfe
 
-# Copy the SQL script to initialize the database
 COPY /data /docker-entrypoint-initdb.d
 
-# Expose the MySQL port
 EXPOSE 3306
 
-# Start MySQL service
 CMD ["mysqld"]
