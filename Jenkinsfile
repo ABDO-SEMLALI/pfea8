@@ -26,14 +26,14 @@ pipeline {
 
     stage('Push Images to Docker Hub') {
       steps {
-        bat 'echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
+        bat 'echo %DOCKERHUB_CREDENTIALS_PSW%| docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin'
         bat 'docker-compose push'
       }
     }
 
     stage('Cleanup') {
       steps {
-        bat 'docker-compose down'
+        sh 'docker-compose down'
       }
     }
   }
