@@ -33,7 +33,7 @@ pipeline {
 
     stage('Cleanup') {
       steps {
-        sh 'docker-compose down'
+        bat 'docker-compose down'
       }
     }
   }
