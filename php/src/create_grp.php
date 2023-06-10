@@ -1,5 +1,5 @@
- <?php
-                    session_start();
+<?php
+session_start();
 
                         $conn = mysqli_connect("mydb", "root", "", "pfe");
                         $fill = $_SESSION['nom_fil'];
@@ -15,7 +15,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SUJET PFE</title>
+</head>
+
+
 <style>
+  body {
+        background: url('img/background.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 
     html{
      height: 100%;
@@ -50,6 +58,14 @@
     float: right;
 }
 #sub{
+  height: 0px;
+  visibility: hidden;
+}
+#sub1{
+  height: 0px;
+  visibility: hidden;
+}
+#sub2{
   height: 0px;
   visibility: hidden;
 }
@@ -223,30 +239,56 @@ h1 {
     text-align: center;
     color: #374B4C;
 }
+body {
+      background: url('img/background.jpeg');
+      min-height: 100%;
+
+    }
 
 
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 </head>
+
+
 <script type="text/javascript">
     $(function () {
         $("#add").click(function () {
-            //Reference the CheckBoxes and determine Total Count of checked CheckBoxes.
+            // Reference the CheckBoxes and determine the total count of checked CheckBoxes.
             var checked = $("#groupe input[type=checkbox]:checked").length;
  
             if (checked > 3) {
-                alert(" Il faut choisir au plus 3 etudiants.");
+                alert("Il faut choisir au plus 3 étudiants.");
+                return true;
+            } else if (checked < 2) {
+                alert("Il faut choisir au moins deux étudiants.");
                 return true;
             }
+            
         });
     });
+</script>
+
+    <script>
      function sub(){
      document.getElementById("sub").style.visibility = "visible";
      document.getElementById("sub").style.height = "60px";
-
      }
-</script>
+
+     function sub1(){
+     document.getElementById("sub1").style.visibility = "visible";
+     document.getElementById("sub1").style.height = "60px";
+     }
+
+     function sub2(){
+     document.getElementById("sub2").style.visibility = "visible";
+     document.getElementById("sub2").style.height = "60px";
+     }
+
+
+   </script>
+
 
                 <div class="wrapper">
         <nav>
@@ -256,7 +298,6 @@ h1 {
             </div>
             <div style="clear: both;"></div>
             
- 
         </nav>
 
     </div>
@@ -268,25 +309,50 @@ h1 {
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="prf.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
+          <a href="profile_adm.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
         </li>
         <li>
-          <a href="choix_add.php" ><span class="fas fa-user-plus"></span><span>Ajout des utilisateurs</span></a>
-        </li>
-        <li>
-          <a href="create_grp.php"class="active"><span class="fas fa-users"></span>Former les groupes<span></span></a>
-        </li> 
-    <li>
           <div class="idk" id="normal" >
           <a href="#" onclick="sub()">
-            <span class="icon"><i class="fas fa-paperclip"></i></span>
-            <span class="title">Affecter les sujets</span>
+            <span class="icon"><i class="fas fa-user-plus"></i></span>
+            <span class="title">Ajout des utilisateurs</span>
             <span id="down" class="fas fa-caret-down"></span>
           </a>
           </div>
            <ul class='sub' id="sub">
+           <li class="normal"><a href="add_etu.php">Etudiant</a></li>
 
-           <li class="normal"><a href="affect_pfe_man.php">Manuellement</a></li>
+           <li class="normal"><a href="add_enc.php">Encadrant</a></li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="idk" id="normal" >
+          <a href="##"  onclick="sub1()">
+            <span class="icon"><i class="fas fa-paperclip"></i></span>
+             <span class="title" >Former les groupes</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub1' id="sub1">
+           <li class="normal"><a href="grp_etu">Etudiant</a></li>
+
+           <li class="normal"><a href="grp_jury.php">Jury</a></li>
+          </ul>
+        </li> 
+          
+        <li>
+          <div class="idk" id="normal" >
+          <a href="#"  onclick="sub2()">
+            <span class="icon"><i class="fas fa-paperclip"></i></span>
+             <span class="title" >Affecter les sujets</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub2' id="sub2">
+           <li class="normal"><a href="affect_pfe.php">Automatiquement</a></li>
+
+           <li class="normal"><a href="affect_pfe_man.php" >Manuellement</a></li>
           </ul>
         </li>
       
@@ -316,7 +382,6 @@ h1 {
             <span class="title">Recapitulatif des pfe's</span>
           </a>
         </li>
--->
         <li>
           <a href="index.php"><span class="fas fa-sign-out-alt"></span><span>Se Deconnecter</span></a>
         </li>
@@ -326,8 +391,9 @@ h1 {
   <br><br><br><br>
   <br><br>
      <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/etud1o.png" ></div>
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/adm.png"></div>
         <form method="post" action="ajouter.php">
+
  
                    
  <?php

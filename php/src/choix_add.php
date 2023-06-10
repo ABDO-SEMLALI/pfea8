@@ -32,11 +32,14 @@
 }
 
 body {
+  background: url('img/background.jpeg');
   font-family: "Montserrat", sans-serif;
 }
 
 .container {
   height:90vh;
+  width:100vh;
+  margin:50px;
   display: flex;
 }
 
@@ -56,21 +59,27 @@ section:hover {
 section h1 {
   background:rgba(0,0,0,0.2);
   color:white;
-  padding: 6px 25px;
+  padding: 6px 90px;
 }
 
 .etudiant{
-  background:url('img/etud1o.png')   ;
+  background:url('img/etu.png');
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
+  margin-left: 30vh;
+  margin-right: 50vh;
+
 }
 
 .encadrant{
-  background:url('img/encad.png')   ;
+  background:url('img/stad1.png');
   background-position: center;
   background-size: cover;
   background-blend-mode: multiply;
+  margin-right: 40vh;
+  margin-left: 0vh;
+  padding-left: 15vh;
 }
 
 

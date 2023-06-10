@@ -9,6 +9,7 @@
   <title></title>
   <style type="text/css">
     * {
+      
       padding: 0;
       margin: 0;
       text-decoration: none;
@@ -18,13 +19,18 @@
     body {
       font-family: "Montserrat", sans-serif;
       while: 100px;
-      background-color: black; /* Ajout de la couleur de fond noir */
+      background: url('img/background.jpeg');
     }
 
     .container {
-      height: 90vh;
+      height: 60vh;
+      align: center;
+      margin-top : 40px ;
       display: flex;
+      width: 195vh;
     }
+    
+ 
 
     section {
       height: 70%;
@@ -47,14 +53,15 @@
     }
 
     .etudiant {
-      background: url('img/etud1.png');
+      background: url('img/etu.png');
       background-position: center;
       background-size: cover;
       background-blend-mode: multiply;
+      
     }
 
     .encadrant {
-      background: url('img/encad.png');
+      background: url('img/stad1.png');
       background-position: left;
       background-size: cover;
       background-blend-mode: multiply;
@@ -62,7 +69,7 @@
 
 
     .administrateur {
-      background: url('img/adm1o.png');
+      background: url('img/adm.png');
       background-position: center;
       background-size: cover;
       background-blend-mode: multiply;
@@ -75,7 +82,7 @@
       background-blend-mode: multiply;
     }
     .proposition {
-      background: url('img/propo1.png');
+      background: url('img/int.png');
       background-position: center;
       background-size: cover;
       background-blend-mode: multiply;
@@ -88,23 +95,14 @@
 
 
 
-    nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      min-height: 10vh;
-      background-color: white;
-      font-family: 'Poppins', sans-serif;
-      text-transform: uppercase;
-    }
+    
 
     .logo {
       color: rgb(225, 225, 225);
-      letter-spacing: 5px;
-      font-size: 20px;
-      margin-left: 0px;
+      letter-spacing: 10px;
+      font-size: 90px;
+      margin-left: 1200px;
     }
-
     #logo {
       font-weight: bold;
     }
@@ -117,10 +115,8 @@
       <div class="logo">
         <img src="img/ensa.png">
       </div>
-
-    </nav>
-
-  </div>
+   </nav>
+    
   <script src="./app.js"></script>
 
   <div class="container">
@@ -137,7 +133,7 @@
     </section>
 
     <section class="proposition">
-      <a href="prp_sjt_ext.php"><h1>proposer sujets</h1></a>
+      <a href="prp_sjt_ext.php"><h1>Proposer sujets</h1></a>
     </section>
 
 

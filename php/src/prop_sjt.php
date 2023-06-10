@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
 
   $bdd=new PDO('mysql:host=mydb;dbname=pfe','root','');
 
@@ -107,6 +107,10 @@
 .sidebar-menu{
   margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
   padding-left: 1rem;
   display: block;
@@ -163,6 +167,7 @@ header{
 
     body {
       min-height: 100%;
+      background: url('img/background.jpeg');
 
     }
     #profile {
@@ -189,7 +194,7 @@ header{
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #81c4e2;
+          background: url('img/background.jpeg');
   margin: 2em 2em 0 0;
   border-radius: 0.5em;
   color: white;
@@ -205,6 +210,7 @@ header{
   display: flex;
   padding: 1em;
   text-align: center;
+  
 }
 
 .user-img {
@@ -480,11 +486,11 @@ button:hover {
 
             <form action="prop_sjt.php" method="POST" >
                 <label></label>
-   <div class="user-container">
+   <div class="user-container" style="margin-left:400px;">
   <?php if (isset($erreur)) { ?>
             <p class="error" align="center"><?php echo $erreur; ?></p>
         <?php } ?>
-                <textarea placeholder="titre du sujet" id="description1" cols="30" name="titre"></textarea>
+                <textarea placeholder="Titre du sujet" id="description1" cols="30" name="titre"></textarea>
           <textarea placeholder="Description du sujet" id="description" cols="30" name="description"></textarea>
                 <button type="submit" name="submit">Envoyer</button>
                 <button name="reset" type="reset">Effacer</button>

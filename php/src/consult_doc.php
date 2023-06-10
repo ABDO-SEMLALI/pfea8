@@ -199,6 +199,10 @@ html{
 .sidebar-menu{
   margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
   padding-left: 1rem;
   display: block;
@@ -255,6 +259,7 @@ header{
 
  		body {
  			min-height: 100%;
+       background: url('img/background.jpeg');
 
  		}
  		#profile {
@@ -618,13 +623,13 @@ echo "<br><br><table>
 
 if (isset($smya6)) {
 	
-$file = $maghatkhdmch.$smya6 ;
+$file6= $maghatkhdmch.$smya6 ;
 
 echo "<br><br>Sujet concerné : " .$row26['suj_pfe'];
 echo "<br><br><table>
 	<tr>
 		<td>
-			<iframe src=$file width=800 height=600 align=middle></iframe>
+			<iframe src=$file6 width=800 height=600 align=middle></iframe>
 		</td>
 		<td> 
 		<form action='commenter.php' method='POST'>
@@ -639,13 +644,13 @@ echo "<br><br><table>
 
 if (isset($smya7)) {
 	
-$file = $maghatkhdmch.$smya7 ;
+$file7 = $maghatkhdmch.$smya7 ;
 
 echo "<br><br>Sujet concerné : " .$row27['suj_pfe'];
 echo "<br><br><table>
 	<tr>
 		<td>
-			<iframe src=$file width=800 height=600 align=middle></iframe>
+			<iframe src=$file7 width=800 height=600 align=middle></iframe>
 		</td>
 		<td> 
 		<form action='commenter.php' method='POST'>
@@ -660,13 +665,13 @@ echo "<br><br><table>
 
 if (isset($smya8)) {
 	
-$file = $maghatkhdmch.$smya8 ;
+$file8 = $maghatkhdmch.$smya8 ;
 
 echo "<br><br>Sujet concerné : " .$row28['suj_pfe'];
 echo "<br><br><table>
 	<tr>
 		<td>
-			<iframe src=$file width=800 height=600 align=middle></iframe>
+			<iframe src=$file8 width=800 height=600 align=middle></iframe>
 		</td>
 		<td> 
 		<form action='commenter.php' method='POST'>
@@ -682,13 +687,13 @@ echo "<br><br><table>
 
 if (isset($smya9)) {
 	
-$file = $maghatkhdmch.$smya9 ;
+$file9 = $maghatkhdmch.$smya9 ;
 
 echo "<br><br>Sujet concerné : " .$row29['suj_pfe'];
 echo "<br><br><table>
 	<tr>
 		<td>
-			<iframe src=$file width=800 height=600 align=middle></iframe>
+			<iframe src=$file9 width=800 height=600 align=middle></iframe>
 		</td>
 		<td> 
 		<form action='commenter.php' method='POST'>

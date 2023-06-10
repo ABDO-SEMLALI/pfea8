@@ -10,10 +10,6 @@ if (isset($_SESSION['id_enc']) && isset($_SESSION['email_enc']) && isset($_SESSI
  $nom=$_SESSION['nom_complet'];
  $id=$_SESSION['id_enc'];
 
-}else{
-  header("Location: login_enc.php");
-  exit();
-}
  ?>
 
 
@@ -85,6 +81,10 @@ if (isset($_SESSION['id_enc']) && isset($_SESSION['email_enc']) && isset($_SESSI
 .sidebar-menu{
   margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
   padding-left: 1rem;
   display: block;
@@ -140,6 +140,7 @@ header{
         }
 
         body {
+          background: url('img/background.jpeg');
             min-height: 100%;
 
         }
@@ -210,7 +211,7 @@ header{
 }
 
 .set-edit {
-  margin-top: 1em;
+  margin-top: 0em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -221,7 +222,7 @@ header{
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 500;
 }
 
@@ -352,7 +353,7 @@ input {
   </div>
  <div class="user-container">
         <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/encad1.png"></div>
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/stad1.png"></div>
             <div class="name-mail">
                 <span class="name"><?php echo  $nom; ?></span><br>
                 <span class="mail"><?php echo $email; ?></span>
@@ -361,21 +362,21 @@ input {
         </div>
         <div class="info-container">
             <div class="set-edit">
-                <span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspProfil de l'encadrant</span>
+                <span> Informations du profil</span>
                 <button id="save-btn" class="btn" type="submit"><span class="edit">Save</span></button>
 
             </div>
 
             <div class="info">
               <form method="post">
-                <div class="div_info"><label class="labels"><span class="details"> votre nom complet</span></label><input
+                <div class="div_info"><label class="labels"><span class="details"> Nom complet</span></label><input
                         type="text" class="input_info" value="<?php echo $nom; ?>" readonly></div>
-                <div class="div_info"><label class="labels"><span class="details">votre identifiant</span></label><input
+                <div class="div_info"><label class="labels"><span class="details">Identifiant</span></label><input
                         type="text" class="input_info"  value="<?php echo $id; ?>" readonly></div>
-                <div class="div_info"><label class="labels"><span class="details">Votre  filiere</span></label><input
+                <div class="div_info"><label class="labels"><span class="details">Filiere</span></label><input
                         type="text" class="input_infosss" value="<?php echo $myFil; ?>" readonly></div>
    
-                <div class="div_info"><label class="labels"><span class="details">Votre E-mail</span></label><input
+                <div class="div_info"><label class="labels"><span class="details">E-mail</span></label><input
                         type="text" class="input_info"  value="<?php echo $email; ?>" readonly></div>
              
               </form>          
@@ -385,3 +386,9 @@ input {
  </body>
  </html>
 
+ <?php 
+}else{
+    header("Location: login_enc.php");
+    exit();
+}
+?>

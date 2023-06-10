@@ -1,5 +1,5 @@
 <?php 
- session_start();
+session_start();
 
   $fill = $_SESSION['nom_fil'];
 $bdd=new PDO('mysql:host=mydb;dbname=pfe','root','');
@@ -28,18 +28,20 @@ if(isset($_POST['supprimer'])){
                         		
 				
 						$sql1 = "SELECT sujet FROM sujet ";
-						$result1 = $conn->query($sql1);*/
+						$result1 = $conn->query($sql1);
 
 						echo $suj;
 						
 
 					while ($row2 = $result1->fetch_assoc()) {
+					}
+				}
 			if ($inc>1)  {	
 			
 				header('location:profile_adm.php');
 			}
 
-			else {*/
+			else {
 $date=date("Y");
 $sql5="SELECT id_ex,sujet FROM suj_ex WHERE annee='".$date."' AND  id_suj= '".$suj."'";
 $result5=$conn->query($sql5);
@@ -62,6 +64,7 @@ $sql4="DELETE FROM suj_ex WHERE fil_suj='".$fill."' AND id_suj = '".$suj."' ";
 	
 
 }
+
 if(isset($_POST['approuver'])){
 
 	$selected = $_POST['checkbox'];
@@ -126,7 +129,7 @@ $selected = $_POST[$row1["titre"]];
 
 
 
-}*/
+}
 
 
 

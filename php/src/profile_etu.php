@@ -7,10 +7,7 @@ if(isset($_SESSION['id_etu']) && isset($_SESSION['email_etu']) && isset($_SESSIO
     $nom=$_SESSION['nom_complet'];
     $id=$_SESSION['id_etu'];    
 
-}else{
-    header("Location: login_etu.php");
-    exit();
-}
+
 
     ?>
 
@@ -76,6 +73,10 @@ padding-left: 10%;
 .sidebar-menu{
 margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
 padding-left: 1rem;
 display: block;
@@ -131,6 +132,7 @@ visibility: hidden;
     }
 
     body {
+        background: url('img/background.jpeg');
         min-height: 100%;
 
     }
@@ -197,7 +199,7 @@ float: right;
 }
 
 .set-edit {
-  margin-top: 1em;
+  margin-top: 0em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -208,7 +210,7 @@ float: right;
       -ms-flex-align: center;
           align-items: center;
   color: white;
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 500;
 }
 
@@ -398,7 +400,6 @@ input {
     justify-content: space-around;
     align-items: center;
     min-height: 10vh;
-    background-color: white;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
 }
@@ -426,7 +427,7 @@ input {
                 <li>
                     <a href="info_pfe.php">
                         <span class="icon"><i class="fas fa-user-plus"></i></span>
-                        <span class="title">Consulter les informations du PFE</span>
+                        <span class="title">Consulter les informations </span>
                     </a>
                 </li>
                 <li>
@@ -500,7 +501,7 @@ input {
   </div>
  <div class="user-container">
         <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/etud1o.png"></div>
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/etu.png"></div>
             <div class="name-mail">
                 <span class="name"><?php echo  $nom; ?></span><br>
                 <span class="mail"><?php echo $email; ?></span>
@@ -509,21 +510,21 @@ input {
         </div>
         <div class="info-container">
             <div class="set-edit">
-                <span> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspProfil de l'étudiant</span>
+                <span> Informations du profil</span>
                 <button id="save-btn" class="btn" type="submit"><span class="edit">Save</span></button>
 
             </div>
 
             <div class="info">
               <form method="post">
-                <div class="div_info"><label class="labels"><span class="details"> votre nom complet</span></label><input
+                <div class="div_info"><label class="labels"><span class="details"> Nom complet</span></label><input
                         type="text" class="input_info" value="<?php echo $nom; ?>" readonly></div>
-                <div class="div_info"><label class="labels"><span class="details">votre identifiant</span></label><input
+                <div class="div_info"><label class="labels"><span class="details">Identifiant</span></label><input
                         type="text" class="input_info"  value="<?php echo $id; ?>" readonly></div>
-                <div class="div_info"><label class="labels"><span class="details">Votre  fillière</span></label><input
+                <div class="div_info"><label class="labels"><span class="details">Fillière</span></label><input
                         type="text" class="input_infosss" value="<?php echo $myFil; ?>" readonly></div>
    
-                <div class="div_info"><label class="labels"><span class="details">Votre E-mail</span></label><input
+                <div class="div_info"><label class="labels"><span class="details">E-mail</span></label><input
                         type="text" class="input_info"  value="<?php echo $email; ?>" readonly></div>
              
               </form>          
@@ -532,3 +533,10 @@ input {
     </div>
  </body>
  </html>
+<?php 
+ 
+}else{
+    header("Location: login_etu.php");
+    exit();
+}
+?>

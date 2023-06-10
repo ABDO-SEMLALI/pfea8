@@ -11,6 +11,11 @@
   <body background-color: black;>
 
   <style type="text/css">
+    button[name="save"] {
+        width: 150px; /* Adjust the desired width */
+        height: 50px; /* Adjust the desired height */
+        font-size: 18px; /* Adjust the desired font size */
+    }
   html{
     height: 100%;
     overflow-x: hidden;
@@ -50,6 +55,10 @@ padding-left: 10%;
 .sidebar-menu{
 margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
 padding-left: 1rem;
 display: block;
@@ -105,6 +114,7 @@ visibility: hidden;
     }
 
     body {
+      background: url('img/background.jpeg');
         min-height: 100%;
 
     }
@@ -128,10 +138,10 @@ float: right;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #81c4e2;
+  background: url('img/background.jpeg');
   margin: 2em 2em 0 0;
   border-radius: 0.5em;
-  color: white;
+  color: black;
   padding: 25px;
   padding-top: 1em;
   border-radius: 1em;
@@ -178,6 +188,14 @@ h1 {
 }
 
   </style>
+  <div class="wrapper">
+        <nav>
+            <div class="logo">
+                <img src="img/ensa.png">
+            </div>
+            <div style="clear: both;"></div>
+
+        </nav>
      <style type="text/css">
 
 * {
@@ -200,7 +218,7 @@ body {
     min-height: 10vh;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    background-color: white;
+    
 }
 
 .logo{
@@ -244,15 +262,6 @@ td {
     justify-content: left;
 }
         </style>
-
-        <div class="wrapper">
-        <nav>
-            <div class="logo">
-                <img src="img/ensa.png">
-            </div>
- 
-        </nav>
-
     </div>
     <div class="sidebar">
     <div class="sidebar-brand">
@@ -296,12 +305,13 @@ td {
     <div class="user-container">
       <div class="row">
         <form action="upload.php" method="post" enctype="multipart/form-data" >
-          <h3>Upload File</h3>
+          <h3>Upload</h3>
           <br>
           <input type="file" name="myfile" title=" "><br>
-            &nbsp&nbsp&nbsp Rapport final &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" name="mon_champ" value="1"><br><br>
-            Rapport d'avancement &nbsp&nbsp<input type="radio" name="mon_champ" value="2"><br><br><br>
-          <button type="submit" name="save">upload</button>
+          Rapport d'avancement &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" name="mon_champ" value="2"><br><br><br>
+           Rapport final &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="radio" name="mon_champ" value="1"><br><br>
+           
+          <button type="submit" name="save">Upload</button>
         </form>
       </div>
     </div>

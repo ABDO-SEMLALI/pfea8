@@ -10,23 +10,37 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<div class="wrapper">
+        <nav>
+            <div class="logo">
+                <img src="img/ensa.png" style=" margin-left: 900px;">
+            </div>
+ 
+        </nav>
+
+    </div>
    <style type="text/css">
        
        body {
     margin: 0;
-    padding: 0;
+    padding: 6;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    background: url('img/background.jpeg');
+    
+
 }
 
 * {
     padding: 0px;
     margin: 0px;
     text-decoration: none;
+
+
 }
 
 .main {
@@ -37,6 +51,9 @@
     box-shadow: 10px 20px 30px 20px #000;
     display: flex;
     justify-content: center;
+    background: url('img/background.jpeg');
+    
+
 }
 
 
@@ -143,7 +160,7 @@ a:hover {
    </style>
     
     <div class="header">
-         <img src="img/login..png">
+         <img src="img/stad1.png"style="width:40%; heigt:20%; margin-Left: 80px;">
         </div>
 
     <div class="main">  
@@ -151,7 +168,7 @@ a:hover {
         <div class="login">
                  
             <form action="login_process_enc.php" method="POST" >
-                <label>Login </label>
+                <label>Se connecter  </label>
 
   <?php if (isset($_GET['error'])) { ?>
             <p class="error" align="center"><?php echo $_GET['error']; ?></p>

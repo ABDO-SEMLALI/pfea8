@@ -1,5 +1,5 @@
 <?php
-                    session_start();
+session_start();
 
                         $conn = mysqli_connect("mydb", "root", "", "pfe");
                         $fill = $_SESSION['nom_fil'];
@@ -52,6 +52,14 @@
 }
 
 #sub{
+  height: 0px;
+  visibility: hidden;
+}
+#sub1{
+  height: 0px;
+  visibility: hidden;
+}
+#sub2{
   height: 0px;
   visibility: hidden;
 }
@@ -138,6 +146,7 @@ fieldset {
   background: #81c4eb;
   border: 5px solid #637E80;
   width: 50%;
+  
 
 
 
@@ -264,7 +273,7 @@ table {
 border: medium solid #6495ed;
 border-collapse: collapse;
 width: 60%;
-margin-left: 350px;
+margin-left: 390px;
 }
 th {
 font-family: monospace;
@@ -292,6 +301,13 @@ background-color:#637E80 ;
     margin-left: 0px;
 }
 
+body {
+      background: url('img/background.jpeg');
+      min-height: 100%;
+
+    }
+
+
 
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -312,12 +328,26 @@ background-color:#637E80 ;
 
         });
     });
- function sub(){
+    </script>    
+
+    <script>
+     function sub(){
      document.getElementById("sub").style.visibility = "visible";
      document.getElementById("sub").style.height = "60px";
-
      }
-</script>     
+
+     function sub1(){
+     document.getElementById("sub1").style.visibility = "visible";
+     document.getElementById("sub1").style.height = "60px";
+     }
+
+     function sub2(){
+     document.getElementById("sub2").style.visibility = "visible";
+     document.getElementById("sub2").style.height = "60px";
+     }
+
+
+   </script>    
 <body>
 
     <div class="wrapper">
@@ -339,24 +369,47 @@ background-color:#637E80 ;
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="prf.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
+          <a href="profile_adm.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
         </li>
         <li>
-          <a href="choix_add.php" ><span class="fas fa-user-plus"></span><span>Ajout des utilisateurs</span></a>
+          <div class="idk" id="normal" >
+          <a href="#" onclick="sub()">
+            <span class="icon"><i class="fas fa-user-plus"></i></span>
+            <span class="title">Ajout des utilisateurs</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub' id="sub">
+           <li class="normal"><a href="add_etu.php">Etudiant</a></li>
+
+           <li class="normal"><a href="add_enc.php">Encadrant</a></li>
+          </ul>
         </li>
+
         <li>
-          <a href="create_grp.php"><span class="fas fa-users"></span>Former les groupes<span></span></a>
+          <div class="idk" id="normal" >
+          <a href="##"  onclick="sub1()">
+            <span class="icon"><i class="fas fa-paperclip"></i></span>
+             <span class="title" >Former les groupes</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub1' id="sub1">
+           <li class="normal"><a href="grp_etu.php">Etudiant</a></li>
+
+           <li class="normal"><a href="grp_jury.php">Jury</a></li>
+          </ul>
         </li>
 
     <li>
           <div class="idk" id="normal" >
-          <a href="#"  onclick="sub()">
+          <a href="#"  onclick="sub2()">
             <span class="icon"><i class="fas fa-paperclip"></i></span>
              <span class="title" >Affecter les sujets</span>
             <span id="down" class="fas fa-caret-down"></span>
           </a>
           </div>
-           <ul class='sub' id="sub">
+           <ul class='sub2' id="sub2">
            <li class="normal"><a href="affect_pfe.php">Automatiquement</a></li>
 
            <li class="normal"><a href="affect_pfe_man.php" >Manuellement</a></li>
@@ -399,7 +452,7 @@ background-color:#637E80 ;
   <br><br><br><br>
 
      <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/propo1.png" ></div>
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/adm.png" ></div>
   
 
    
@@ -419,12 +472,12 @@ background-color:#637E80 ;
                 echo "     <table  id='les sujets'>
                                 <tr>
                                 
-                                <th>sujets externes</th>
-                                <th>description</th>
-                                 <th>nom du proposeur </th>
-                                 <th>l'entreprise</th>
-                                  <th>statut</th>
-                                 <th>email</th>
+                                <th>Sujets externes</th>
+                                <th>Description</th>
+                                 <th>Nom du proposeur </th>
+                                 <th>Entreprise</th>
+                                  <th>Statut</th>
+                                 <th>Email</th>
                                  </tr>";	
                     while($row1 = $result->fetch_assoc()) 
 {
@@ -459,9 +512,9 @@ background-color:#637E80 ;
                             } }  
                             echo "</table>";
                              echo" <br/><br/>";
-                              echo "<input type='submit' name='supprimer' form='yns'  id='add' value='supprimer le sujet'/>";
+                              echo "<input type='submit' name='supprimer' form='yns'  id='add' value='Supprimer le sujet'/>";
 
-                  echo "<input type='submit' name='approuver' id='add' form='yns' value='approuver le sujet'/>";
+                  echo "<input type='submit' name='approuver' id='add' form='yns' value='Approuver le sujet'/>";
                   
                 }else{
                     echo " <h1>il n y a aucun sujet externe pour l'instant</h1>";

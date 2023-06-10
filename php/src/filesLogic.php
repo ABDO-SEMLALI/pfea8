@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $conn = mysqli_connect('mydb', 'root', '', 'pfe');
@@ -27,7 +26,9 @@ $pfe = $_SESSION['id_pfe'];
     $size = $_FILES['myfile']['size'];
 
     if (!in_array($extension, ['zip', 'pdf', 'docx'])) {
-        echo "You file extension must be .zip, .pdf or .docx";
+        echo '<div style="display: flex; justify-content: center;">';
+        echo '<p style="text-align: center;"><h1>You file extension must be .zip, .pdf or .docx</h1></p>';
+        echo '</div>';
         
     } elseif ($_FILES['myfile']['size'] > 1000000000) { 
         echo "File too large!";
@@ -39,7 +40,10 @@ $pfe = $_SESSION['id_pfe'];
 
             $sql = "INSERT INTO document (name, size, id_pfe, type_doc) VALUES ('$filename2', $size, '$pfe', '$type')";
             if (mysqli_query($conn, $sql)) {
-                echo "File uploaded successfully";
+                echo '<div style="display: flex; justify-content: center; align-items: center;">';
+                echo '<p style="text-align: center;"><h1>File uploaded successfully</h1></p>';
+                echo '</div>';
+                
 
                 
             }

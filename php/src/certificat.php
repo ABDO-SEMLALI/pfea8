@@ -1,5 +1,5 @@
 <?php 
-     session_start();
+session_start();
 
      $conn = mysqli_connect("mydb", "root", "", "pfe");
      if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }

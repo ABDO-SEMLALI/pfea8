@@ -1,5 +1,5 @@
 <?php 
-	session_start();
+session_start();
 	include 'db_connect.php';
 
 	$my_id_pfe = $_SESSION['id_pfe'];
@@ -81,6 +81,10 @@ padding-left: 10%;
 .sidebar-menu{
 margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
 padding-left: 1rem;
 display: block;
@@ -137,7 +141,7 @@ visibility: hidden;
 
     body {
         min-height: 100%;
-
+		background: url('img/background.jpeg');
     }
     #profile {
         margin-left: -7px;
@@ -199,7 +203,6 @@ body {
     min-height: 10vh;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
-    background-color: white;
 }
 
 .logo{

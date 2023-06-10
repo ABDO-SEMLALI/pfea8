@@ -1,6 +1,5 @@
-  <?php
-
-                    session_start();
+<?php
+session_start();
 
                         $conn = mysqli_connect("mydb", "root", "", "pfe");
                         $fill = $_SESSION['nom_fil'];

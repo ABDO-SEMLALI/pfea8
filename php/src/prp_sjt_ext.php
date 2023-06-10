@@ -379,6 +379,7 @@ textarea {
     display: flex;
     flex-direction: column;
     background-color: black;
+    background: url('img/background.jpeg');
 }
 
 * {
@@ -544,7 +545,7 @@ h2 {
     
 <div class="user-container">
         <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/ext.png" ></div>
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/int.png" ></div>
          
             
         </div>

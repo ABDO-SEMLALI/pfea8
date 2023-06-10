@@ -1,35 +1,31 @@
 <?php
 session_start();
 
-                    $annee =date("Y");
-
                         $conn = mysqli_connect("mydb", "root", "", "pfe");
                         $fill = $_SESSION['nom_fil'];
                         if ($conn->connect_error) { die("Connection failed: " . $conn->connect_error); }
-                        $sql = "SELECT DISTINCT id_groupe, nom_filliere, id_pfe FROM etudiant WHERE id_groupe > 0 AND id_pfe = 0 AND  nom_filliere = '".$fill."' AND annee = '".$annee."'";
-                        $sql1 = "SELECT id_pfe, suj_pfe, id_groupe FROM pfes WHERE id_groupe = 0 AND nom_fil = '".$fill."' AND annee = '".$annee."'";
-
+                        $sql = "SELECT id_enc,nom_complet,nom_filliere FROM encadrant WHERE id_groupe = 0 AND nom_filliere = '".$fill."'";
                         $result = $conn->query($sql);
-                        $result1= $conn->query($sql1);
-
-                        $i = 0;
-                        $j = 0;
-
-                        $sql4 = "SELECT suj_pfe, id_groupe FROM pfes WHERE id_groupe != 0 AND nom_fil = '".$fill."' ";
-                        $result4 = $conn->query($sql4);
-           
-
-           if ($result1->num_rows >= $result->num_rows )  {
-            ?>
-
+                        ?>
 <!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-<title>affectation mannuelle</title>
-<style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUJET PFE</title>
+</head>
 
- html{
+
+<style>
+  body {
+        background: url('img/background.jpeg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    html{
      height: 100%;
      overflow-x: hidden;
    }
@@ -98,21 +94,20 @@ session_start();
 .sidebar-menu{
   margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
   padding-left: 1rem;
   display: block;
   color: #fff;
   font-size: 1.1rem;
 }
-.sidebar-menu a:hover {
-  background-color: 
-#629194;
-    }
 .sidebar-menu a span:first-child{
   padding-right: 1rem;
   font-size: 1.5rem;
 }
-
 .sidebar-menu a.active{
   background: #fff;
   padding-top: 1rem;
@@ -141,7 +136,7 @@ header{
     color: rgb(225, 225, 225);
     letter-spacing: 5px;
     font-size: 20px;
-       margin: 2px;
+      margin: 2px;
       padding: 20px;
 }
 #logo {
@@ -156,7 +151,7 @@ fieldset {
   background: #81c4eb;
   border: 5px solid #637E80;
   width: 85%;
-  
+
 
 
 
@@ -185,8 +180,6 @@ input[type=submit]:hover {
   display: block;
   padding: 1em;
   text-align: center;
-  margin-left: 120px;
-
  
 
 }
@@ -197,7 +190,7 @@ input[type=submit]:hover {
   border-radius: 0.5em;
   -webkit-box-shadow: 0px 1px 15px -2px white;
           box-shadow: 0px 1px 15px -2px white;
- margin-left: 200px;
+ margin-left: -100px;
  padding: -4px;
 }
 .info {
@@ -217,7 +210,7 @@ input[type=submit]:hover {
 }
 
 input[type=submit] {
-  width: 30%;
+  width: 20%;
     height: 40px;
     margin:3px auto;
     justify-content: center;
@@ -245,39 +238,18 @@ input[type=submit] {
 }
 
 h1 {
-    font-family:sans-serif;
+    font-family: monospace;
     font-weight: bold;
     text-align: center;
     color: #374B4C;
 }
-table {
-border: medium solid #6495ed;
-border-collapse: collapse;
-width: 85%;
-}
-th {
-font-family: monospace;
-border: thin solid #6495ed;
-width: 50%;
-padding: 5px;
-background-color:#637E80 ;
-background-image: url(sky.jpg);
-}
-td {
-font-family: sans-serif;
-border: thin solid #6495ed;
-width: 50%;
-padding: 5px;
-text-align: center;
-background-color: #81c4eb;
-}
-caption {
-font-family: sans-serif;
-background-color:#637E80 ;
-}
+body {
+      background: url('img/background.jpeg');
+      min-height: 100%;
+
+    }
 
 
-</style>
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
@@ -286,23 +258,16 @@ background-color:#637E80 ;
     $(function () {
         $("#add").click(function () {
             //Reference the CheckBoxes and determine Total Count of checked CheckBoxes.
-            var checked = $("#id_grp input[type=checkbox]:checked").length;
+            var checked = $("#groupe input[type=checkbox]:checked").length;
  
-            if (checked > 1) {
-                alert(" Il faut choisir un seul groupe .");
+            if (checked > 3) {
+                alert(" Il faut choisir au plus 3 jury.");
                 return true;
             }
-            var checked1 = $("#sujet input[type=checkbox]:checked").length;
- 
-            if (checked1 > 1) {
-                alert(" Il faut choisir un seul sujet .");
-                return true;
-            }
-
-
         });
     });
-    </script>   
+
+    </script>
 
     <script>
      function sub(){
@@ -321,18 +286,17 @@ background-color:#637E80 ;
      }
 
 
-   </script>   
- <body >
+   </script>
+
 
                 <div class="wrapper">
         <nav>
-     
+             
             <div class="logo">
                 <img src="img/ens.png" >
             </div>
             <div style="clear: both;"></div>
             
- 
         </nav>
 
     </div>
@@ -346,7 +310,6 @@ background-color:#637E80 ;
         <li>
           <a href="profile_adm.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
         </li>
-    
         <li>
           <div class="idk" id="normal" >
           <a href="#" onclick="sub()">
@@ -361,7 +324,6 @@ background-color:#637E80 ;
            <li class="normal"><a href="add_enc.php">Encadrant</a></li>
           </ul>
         </li>
-       
         <li>
           <div class="idk" id="normal" >
           <a href="##"  onclick="sub1()">
@@ -373,12 +335,12 @@ background-color:#637E80 ;
            <ul class='sub1' id="sub1">
            <li class="normal"><a href="grp_etu.php">Etudiant</a></li>
 
-           <li class="normal"><a href="grp_jury.php">Jury</a></li>
+           <li class="normal"><a href="active">Jury</a></li>
           </ul>
         </li>
-    <li>
+        <li>
           <div class="idk" id="normal" >
-          <a href="#" class="active" onclick="sub2()">
+          <a href="#"  onclick="sub2()">
             <span class="icon"><i class="fas fa-paperclip"></i></span>
              <span class="title" >Affecter les sujets</span>
             <span id="down" class="fas fa-caret-down"></span>
@@ -387,9 +349,10 @@ background-color:#637E80 ;
            <ul class='sub2' id="sub2">
            <li class="normal"><a href="affect_pfe.php">Automatiquement</a></li>
 
-           <li class="normal"><a href="active" class="active">Manuellement</a></li>
+           <li class="normal"><a href="affect_pfe_man.php" >Manuellement</a></li>
           </ul>
         </li>
+
       
        <li class="normal">
                     <a href="gestion.php">
@@ -417,7 +380,6 @@ background-color:#637E80 ;
             <span class="title">Recapitulatif des pfe's</span>
           </a>
         </li>
--->
         <li>
           <a href="index.php"><span class="fas fa-sign-out-alt"></span><span>Se Deconnecter</span></a>
         </li>
@@ -425,118 +387,47 @@ background-color:#637E80 ;
     </div>
   </div>
   <br><br><br><br>
- 
+  <br><br>
      <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/adm.png" ></div>
-  
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/adm.png"></div>
+        <form method="post" action="ajouter_jury .php">
 
-        <form method="post" action="affectation_process_man.php">
  
-<?php
+                   
+ <?php
+                    
+             
+                      if ($result->num_rows > 0) {
 
-                        
-
-               
-        if ($result && $result->num_rows != 0) 
-              
-                {       
-                   echo "<fieldset>
-  <legend> Sélectionner le groupe à affecter</legend>
-  <br>";	
-                    while($row1 = $result->fetch_assoc()) 
-                        { 
-
-                              echo" <div>        
-                                     <input type='checkbox' value=".$row1["id_groupe"]." id='" . $row1["id_groupe"]. "' name='checkbox[]'>&nbsp&nbsp&nbsp&nbsp
-                                    <label for='". $row1["id_groupe"]."'>". $row1["id_groupe"]."</label></div>";
-                                        $i++;
-                                      
-                            }
-                            echo "</fieldset>";
-                        
-                }else 
-                    { 
-                        echo "<fieldset><h1>Tous les groupes ont eux leurs sujets</h1></fieldset>"; 
-                    }
-
-
-  echo" <br/><br/>";
-                        
-    
-
-
-
-    if ($result && $result->num_rows != 0 && $result1 && $result1->num_rows != 0) 
-        {
-
-             echo"   <fieldset>
-  <legend> Sélectionner le sujet correspondant</legend>
+                              echo "<fieldset>
+  <legend> Sélectionner les encadrants</legend>
   <br>";
-            while($row2 = $result1->fetch_assoc()) 
-                {
-                    echo "  <div>
-                     <input type='checkbox' value=". $row2["id_pfe"]."  id='" . $row2["id_pfe"]. "' name='checkbox1[]'>&nbsp&nbsp&nbsp&nbsp
-                                    <label for='" . $row2["id_pfe"]. "'>". $row2["suj_pfe"]. "</label></div>";
+                                     
+                            while($row = $result->fetch_assoc()) 
+                            {
 
-                                      $j++;
+
+                                echo " 
+                                <div>
+                                <input type='checkbox'  id='" . $row["id_enc"]. "' name='checkbox[]' value=".$row["id_enc"].">&nbsp&nbsp&nbsp&nbsp
+                                    <label for='" .$row["id_enc"]. "'>".$row["nom_complet"]."</label> </div>";
+      
+                            
+                        }
+
+                          echo"   </fieldset>  
+            
+        <input type='submit' name='add' id='add' value='Créer le groupe'>";
+
+                    
+                    }
+                        else 
+                            { 
+                                echo "<fieldset><h1>Tous les encadrants ont des groupes</h1></fieldset>"; 
                             }
-
-                            echo "</fieldset>";
-
-                            echo "<input type='submit' name='affect' id='add' value='affecter le sujet au groupe'/>";
-        }
-
-        else{
-            echo "<fieldset><h1>Tous les sujets sont affectes</h1></fieldset>";
-        }
-
-               } else {
-                    echo "<fieldset><h1>Les sujets ne sont pas suffisants</h1></fieldset>";
-                }
-              
-                         
-         
-
-
-                echo "<br><br>";
-
-                
-
-
-                if ($result4 && $result4->num_rows != 0) 
-                {   
-
-                    echo "  <table>
-                       
-<h1>Tableau récapitulatif</h1><br>
-                                <tr>
-                                <th>groupe</th>
-                                <th>PFE</th>
-                                </tr> ";
-                    while($row4 = $result4->fetch_assoc()) 
-                        {
-
-                            echo"
-
-                                <tr>         
-                                    <td> ".$row4['id_groupe']."</td>
-                                    <td>" .$row4["suj_pfe"]. "</td>
-
-                                </tr>";
-                                        $i++;
-                                      
-                            }
-                            echo "</table>";
-                        
-                }else 
-
-                       
-
-                      
                         $conn->close();
                     ?>
-            </table>
-            
+     
         </form>
     </body>
 </html>

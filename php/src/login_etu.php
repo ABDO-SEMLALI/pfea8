@@ -10,35 +10,53 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body>
+<div class="wrapper">
+        <nav>
+            <div class="logo">
+                <img src="img/ensa.png" style=" margin-left: 900px;">
+            </div>
+ 
+        </nav>
+
+    </div>
 
    <style type="text/css">
+    
        
        body {
     margin: 0;
-    padding: 0;
+    padding: 6;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    background-color: white ;
+    background: url('img/background.jpeg');
+    
+
 }
 
 * {
     padding: 0px;
     margin: 0px;
     text-decoration: none;
+
+
 }
 
 .main {
     width: 400px;
-    height: 400px;
+    height: 500px;
     background: linear-gradient(to bottom, #E9EAEB, #C2CDD1, ,  #ADBDC4);
     border-radius: 10px;
     box-shadow: 10px 20px 30px 20px #000;
     display: flex;
     justify-content: center;
+    background: url('img/background.jpeg');
+    
+
 }
 
 
@@ -47,7 +65,9 @@
 .login {
     position: relative;
     width: 100%;
-    height: 100%;   
+    height: 100%; 
+
+  
 }
 
 label {
@@ -142,6 +162,10 @@ a:hover {
 }
 
    </style>
+      <div class="header">
+         <img src="img/etu.png"  style="width:15%; heigt:20%; margin-Left: 375px;">
+
+        </div>
 
 
 
@@ -155,12 +179,12 @@ a:hover {
             <p class="error" align="center"><?php echo $_GET['error']; ?></p>
         <?php } ?>
 
-        <div style="border: 5px solid black ; padding: 20px;">
+        <div style=>
         <label>Se connecter</label>
   <input type="email" id="email" name="email" class="#" placeholder="Votre E-mail">
   <input type="password" name="password" id="password" class="#" placeholder="Votre mot de passe">
 
-  <table style="background-color: white; margin-left: auto; margin-right: auto;">
+  <table style="border: 2px solid black ; padding: 20px; background-color: white; margin-left: auto; margin-right: auto;">
   <tr>
     <td style="margin-right: 5cm;"> <input type="radio" name="mon_champ" value="4ème"> 4ème </td>
     <td> <input type="radio" name="mon_champ" value="5ème"> 5ème </td>

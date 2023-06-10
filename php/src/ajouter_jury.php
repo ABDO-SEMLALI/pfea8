@@ -9,11 +9,11 @@ $HOST = "mydb";
 $USER = "root";
 $PASS = "";
 $dbname ="pfe";
-$users = "etudiant"; 
+$users = "encadrant"; 
 $base = mysqli_connect($HOST, $USER, $PASS);
 $fill = $_SESSION['nom_fil'];
 mysqli_select_db($base, $dbname);
-  	$handler = mysqli_query($base, "SELECT id_groupe FROM etudiant ORDER BY id_groupe DESC LIMIT 1 ");
+  	$handler = mysqli_query($base, "SELECT id_groupe FROM encadrant ORDER BY id_groupe DESC LIMIT 1 ");
 $data = mysqli_fetch_assoc($handler);
 $ide = $data['id_groupe'];
 $ide = $ide + 1;
@@ -26,13 +26,13 @@ $ide = $ide + 1;
 		foreach ($selected as $id) {
 				if (isset($id)) {
 
-					  $sql = "SELECT id_etu,nom_complet FROM etudiant ";
+					  $sql = "SELECT id_enc,nom_complet FROM encadrant ";
                         $result = $conn->query($sql);
 						    while($row = $result->fetch_assoc()) 
                             {
 
 
-			mysqli_query($conn, "UPDATE etudiant SET id_groupe = $ide  WHERE id_etu = ".$id." ");
+			mysqli_query($conn, "UPDATE encadrant SET id_groupe = $ide  WHERE id_enc = ".$id." ");
 			
 		}
  

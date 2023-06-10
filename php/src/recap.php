@@ -66,6 +66,10 @@ padding-left: 10%;
 .sidebar-menu{
 margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
 padding-left: 1rem;
 display: block;
@@ -123,6 +127,7 @@ visibility: hidden;
 
     body {
         min-height: 100%;
+        background: url('img/background.jpeg');
 
     }
     #profile {
@@ -157,6 +162,7 @@ padding: 25px;
 padding-top: 1em;
 border-radius: 1em;
 margin-left: 300px;
+
 }
 
 .user-card {
@@ -277,7 +283,7 @@ height: 2em;
 width: 20em;
 outline: none;
 font-size: 1em;
-color: black;
+color: black ;
 margin: 1em;
 margin-left: 100px;
 margin-bottom: 0;
@@ -333,6 +339,7 @@ input {
     height: 20px;
     border-radius: 10px;
     margin-right: 15px;
+    
 }
 #button{
     width: 10%;
@@ -342,12 +349,15 @@ input {
 }
 form {
     position: absolute;
+    background-color: #81c4e2;
     width: 700px;
     height: 20%;
     margin-top: 50px;
     margin-left: 60px;
     border-radius: 10px;
     box-shadow: 0px 0px 5px 5px #000;
+    color:black ;
+   
 
     
 }
@@ -386,7 +396,7 @@ form {
   margin: 2em 2em 0 0;
   border-radius: 0.5em;
   color: white;
-  padding: 25px;
+  padding: 2px;
   padding-top: 1em;
   border-radius: 1em;
  margin-left: 300px;
@@ -441,13 +451,13 @@ h3 {
     </div>
   </div>
   <div class="user-container">
+  <label id="de"><h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspRécapitulation  </h1></label>
 
 <form method="POST" action="recap.php" >
 <div class="form">
-   <label id="de">De</label> <input type="text" name ="min">
-   <label>A</label> <input type="text" name="max">
-
-    <button name="chercher" id="button">chercher</button>
+   <label id="de">L'année universitaire </label> <input type="text" name ="min" placeholder="Année">
+   
+<button name="chercher" id="button">chercher</button>
 </div>
 </form>
 
@@ -510,12 +520,11 @@ $myId = $_SESSION['id_enc'];
 if(isset($_POST['chercher'])){
     
 
-    if($_POST['min']!=NULL && $_POST['max']!=NULL){
+    if($_POST['min']!=NULL){
 
         
 
         $min = $_POST['min'];
-        $max = $_POST['max'];
 
             echo "<div id='table'>";
 
@@ -524,12 +533,12 @@ if(isset($_POST['chercher'])){
                     echo "<div id='global'>";
 
                     echo "<h2 style='visibility:hidden;' id='titre1'>";
-                    echo "Recapitulatif des PFE's de l'encadrant ".$myName." :";
+                    echo "Recapitulatif des projets de l'encadrant ".$myName." :";
                     echo "</h2>";
 
 
 
-        for($i = $min; $i<=$max; $i++){
+        for($i = $min; $i<2024; $i++){
 
                     $sql = "SELECT id_pfe,suj_pfe FROM pfes WHERE id_enc = '".$myId."' AND annee = '".$i."'";
                     $result = $conn->query($sql);
@@ -588,7 +597,7 @@ if(isset($_POST['chercher'])){
         echo "<br> ";echo "<br> ";echo "<button onclick='makePdf()' type='button' name='pdf' id='pdf'>Voir comme PDF</button>";
         
         
-    }elseif($_POST['min']!=NULL && $_POST['max']==NULL){
+    }elseif($_POST['min']!=NULL){
 
 
 

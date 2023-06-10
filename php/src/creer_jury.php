@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $bdd=new PDO('mysql:host=mydb;dbname=pfe','root','');

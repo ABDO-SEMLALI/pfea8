@@ -10,24 +10,40 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body>
+
+<div class="wrapper">
+        <nav>
+            <div class="logo">
+                <img src="img/ensa.png" style=" margin-left: 900px;">
+            </div>
+ 
+        </nav>
+
+    </div>
 
    <style type="text/css">
        
        body {
     margin: 0;
-    padding: 0;
+    padding: 6;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     text-decoration: none;
     display: flex;
     flex-direction: column;
+    background: url('img/background.jpeg');
+    
+
 }
 
 * {
     padding: 0px;
     margin: 0px;
     text-decoration: none;
+
+
 }
 
 .main {
@@ -38,11 +54,11 @@
     box-shadow: 10px 20px 30px 20px #000;
     display: flex;
     justify-content: center;
+    background: url('img/background.jpeg');
+    padding-bottom: 2px;
+    
+
 }
-
-
-
-
 .login {
     position: relative;
     width: 100%;
@@ -57,7 +73,7 @@ label {
     justify-content: center;
     display: flex;
     margin-top: 0px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     padding-top: 0px;
     padding-bottom: 15px;
     font-weight: bold;
@@ -141,6 +157,10 @@ a:hover {
 }
 
    </style>
+   <div class="header">
+         <img src="img/adm.png"  style="width:15%; heigt:20%; margin-Left: 375px;">
+
+        </div>
 
 
 
@@ -148,7 +168,7 @@ a:hover {
         <div class="login">
 
             <form action="login_process_adm.php" method="POST" >
-                <label>Se connecter</label>
+                <label> Se connecter </label>
 
   <?php if (isset($_GET['error'])) { ?>
             <p class="error" align="center"><?php echo $_GET['error']; ?></p>

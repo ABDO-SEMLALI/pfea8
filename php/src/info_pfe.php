@@ -1,6 +1,4 @@
-
 <?php 
-
 session_start();
 include "db_connect.php";
 
@@ -90,6 +88,14 @@ padding-left: 10%;
 .sidebar-menu{
 margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
 padding-left: 1rem;
 display: block;
@@ -145,6 +151,7 @@ visibility: hidden;
     }
 
     body {
+        background: url('img/background.jpeg');
         min-height: 100%;
 
     }
@@ -395,7 +402,7 @@ h1 {
 
 
 
-            echo "<table id='table' border='1' ><tr><th ><h3>Vos Collegues</h3></th><th ><h3>Votre encadrant</h3></th><th ><h3>&nbsp&nbsp&nbspVotre &nbsp&nbsp&nbsp&nbspsujet&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3></th><th ><h3>Description du sujet</h3></th><th ><h3>La note finale</h3></th></tr>";
+            echo "<table id='table' border='1' ><tr><th ><h3>Vos Collegues</h3></th><th ><h3>Votre encadrant</h3></th><th ><h3>&nbsp&nbsp&nbspVotre &nbsp&nbsp&nbsp&nbspsujet&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h3></th><th ><h3>Description du sujet</h3></th></tr>";
             
             echo "<tr><td >"; do { echo $row1["nom_complet"]. ",\n"; }while($row1 = $result1->fetch_assoc()); echo"</td><td class='encadrant'>";
             
@@ -409,11 +416,6 @@ h1 {
         echo "<td class='description'>";
         echo $row["des_pfe"];   
         echo "</td>";
-    
-        echo "<td class='note'>";
-        echo $row4['note_rapport'];
-
-
     echo "</td></tr></table>";
                               
 } 

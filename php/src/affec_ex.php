@@ -1,5 +1,5 @@
 <?php 
- session_start();
+session_start();
   $fill = $_SESSION['nom_fil'];
 $bdd=new PDO('mysql:host=mydb;dbname=pfe','root','');
 $conn = mysqli_connect("mydb", "root", "", "pfe");
@@ -31,7 +31,7 @@ echo "string";
                         		foreach ($selected1 as $enc){
 				if (isset($enc)) {
 					$sql1 = "SELECT sujet FROM sujet ";
-						$result1 = $conn->query($sql1);*/
+						$result1 = $conn->query($sql1);
 echo "jfjdfk";
 						echo $suj;
 						echo $enc;
@@ -42,7 +42,7 @@ echo "jfjdfk";
 				header('location:profile_adm.php');
 			}
 
-			else {*/
+			else {
 $date=date("Y");
   										$HOST = "mydb";
 										$USER = "root";
@@ -65,14 +65,14 @@ $date=date("Y");
 					$insertuser= $bdd ->prepare("INSERT INTO pfes(id_pfe,suj_pfe,des_pfe,id_enc,annee,nom_fil,id_proposeur) VALUES(?,?,?,?,?,?,?)");
    $insertuser -> execute(array($id,$suj,$row3["des_suj"],$enc,$date,$fill,$row3["id"]));
    $sql4="DELETE FROM sujet WHERE fil_suj='".$fill."' AND sujet = '".$suj."' ";
-   $result4=$conn->query($sql4);*/
+   $result4=$conn->query($sql4);
 									
 			mysqli_query($conn,"UPDATE etudiant SET id_pfe = $id1  WHERE id_groupe = ".$id."" )		;	
 			mysqli_query($conn,"UPDATE pfes SET id_groupe = $id  WHERE id_pfe = ".$id1."" )		;
 
-			/*}	
+			}	
 		
-							}*/
+							}
 		}
 						    
 }

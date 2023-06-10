@@ -1,5 +1,5 @@
 <?php 
-    session_start();
+session_start();
 
     include "db_connect.php";
 
@@ -48,10 +48,10 @@ nav{
     align-items: center;
     display: flex;
     min-height: 10vh;
-    background-color: white;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     width: 100%;
+
 }
 
 .icon1 {
@@ -169,6 +169,14 @@ input {
   height: 0px;
   visibility: hidden;
 }
+#sub1{
+  height: 0px;
+  visibility: hidden;
+}
+#sub2{
+  height: 0px;
+  visibility: hidden;
+}
 h4{
      font-family:sans-serif;
     font-weight: bold;
@@ -240,12 +248,14 @@ header{
   z-index: 100;
   transition: left 300ms;
 }
+
 .logo{
     color: rgb(225, 225, 225);
     letter-spacing: 5px;
     font-size: 20px;
-  margin: 5px;
- padding: 15px;
+    margin: 5px;
+    padding: 15px;
+    margin-left: 1200px;
 }
 #logo {
   font-weight: bold;
@@ -388,6 +398,13 @@ caption {
 font-family: sans-serif;
 background-color:#637E80 ;
 }
+
+body {
+      background: url('img/background.jpeg');
+      min-height: 100%;
+
+    }
+
  </style>
 <script src="jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -428,23 +445,37 @@ background-color:#637E80 ;
 
 
    }
-    function sub(){
+   <script>
+     function sub(){
      document.getElementById("sub").style.visibility = "visible";
      document.getElementById("sub").style.height = "60px";
-
      }
+
+     function sub1(){
+     document.getElementById("sub1").style.visibility = "visible";
+     document.getElementById("sub1").style.height = "60px";
+     }
+
+     function sub2(){
+     document.getElementById("sub2").style.visibility = "visible";
+     document.getElementById("sub2").style.height = "60px";
+     }
+
+
+   </script>
+
 </script>
   <body >
 
                 <div class="wrapper">
         <nav>
+
+             
+             <div class="logo">
+                 <img src="img/ens.png" >
+             </div>
+             <div style="clear: both;"></div>
             
-            <div class="logo">
-                <img src="img/ens.png" >
-            </div>
-            <div style="clear: both;"></div>
-            
- 
         </nav>
 
     </div>
@@ -456,27 +487,48 @@ background-color:#637E80 ;
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="prf.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
+          <a href="profile_adm.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
         </li>
         <li>
-          <a href="choix_add.php" ><span class="fas fa-user-plus"></span><span>Ajout des utilisateurs</span></a>
-        </li>
-        <li>
-          <a href="create_grp.php"><span class="fas fa-users"></span>Former les groupes<span></span></a>
-        </li>
-
-    <li>
           <div class="idk" id="normal" >
-          <a href="#"  onclick="sub()">
+          <a href="#" onclick="sub()">
+            <span class="icon"><i class="fas fa-user-plus"></i></span>
+            <span class="title">Ajout des utilisateurs</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub' id="sub">
+           <li class="normal"><a href="add_etu.php">Etudiant</a></li>
+
+           <li class="normal"><a href="add_enc.php">Encadrant</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="idk" id="normal" >
+          <a href="##"  onclick="sub1()">
+            <span class="icon"><i class="fas fa-paperclip"></i></span>
+             <span class="title" >Former les groupes</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub1' id="sub1">
+           <li class="normal"><a href="grp_etu.php">Etudiant</a></li>
+
+           <li class="normal"><a href="grp_jury.php">Jury</a></li>
+          </ul>
+        </li>
+        <li>
+          <div class="idk" id="normal" >
+          <a href="#"  onclick="sub2()">
             <span class="icon"><i class="fas fa-paperclip"></i></span>
              <span class="title" >Affecter les sujets</span>
             <span id="down" class="fas fa-caret-down"></span>
           </a>
           </div>
-           <ul class='sub' id="sub">
+           <ul class='sub2' id="sub2">
            <li class="normal"><a href="affect_pfe.php">Automatiquement</a></li>
 
-           <li class="normal"><a href="affect_pfe_man.php" class="active">Manuellement</a></li>
+           <li class="normal"><a href="affect_pfe_man.php" >Manuellement</a></li>
           </ul>
         </li>
       

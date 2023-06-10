@@ -1,6 +1,4 @@
-
 <?php 
-
 session_start();
 include "db_connect.php";
 
@@ -113,6 +111,10 @@ if (isset($_SESSION['id_enc']) && isset($_SESSION['email_enc']) && isset($_SESSI
 .sidebar-menu{
   margin-top: 1rem;
 }
+.sidebar-menu a:hover {
+  background-color: 
+#629194;
+    }
 .sidebar-menu a{
   padding-left: 1rem;
   display: block;
@@ -168,6 +170,7 @@ header{
         }
 
         body {
+          background: url('img/background.jpeg');
             min-height: 100%;
 
         }
@@ -390,7 +393,7 @@ input {
             echo "</div>";
         echo"</br>";
     
-            echo "  <table border='1' style='width: 70%;'>
+            echo "  <table border='1' style='width: 70%; color:black;'>
             <tr>
             <th>Nom du sujet</th>
             <th>Nom des etudiants</th>
@@ -473,45 +476,7 @@ input {
         }
 
 
- 
-if($result2 && $result2->num_rows!=0){
-        if($result3 && $result3->num_rows!=0){
 
-            echo "<br><br>";
-
-            echo "<div class='univ'>Votre compte jury : </div><br><br>";
-
-            echo "<table border='1'><tr><th>Login</th><th>Mot de passe</th><tr>";
-
-            echo "<tr>";
-
-            while($row3 = $result3->fetch_assoc()){
-                $sql4 = "SELECT * FROM jury WHERE id_jury = '".$row3['id_jury']."'";
-
-                $result4 = $conn->query($sql4);
-
-                echo "<td style='width: 70%;    '>";
-
-                if($result4 && $result4->num_rows!=0){
-                     while($row4 = $result4->fetch_assoc()){
-                         echo $row4['mail_jury'];
-
-                         echo "</td>";
-
-                         echo "<td>";
-
-                         echo $row4['password'];
-
-                         echo "</td>";
-                     }
-                }
-
-                echo "</tr>";
-            }
-
-            echo "</table>";
-        }
-    }
         ?>
     
 <?php 

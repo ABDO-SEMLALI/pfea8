@@ -1,5 +1,5 @@
 <?php
-                    session_start();
+session_start();
 
                         $conn = mysqli_connect("mydb", "root", "", "pfe");
                         $fill = $_SESSION['nom_fil'];
@@ -42,14 +42,7 @@
   font-family: 'Montserrat';
 }
 
-.sidebar{
-  width: 20%;
-  display: inline-block;
-  height: 100%;
-  background: #81c4eb;
-  transition: width 300ms;
-  position: fixed;
-}
+
         
 
   
@@ -63,11 +56,19 @@
 }
 #logo {
   font-weight: bold;
-
+  margin-left: 50px;
 }
 #sub{
-    height: 0px;
-    visibility: hidden;
+  height: 0px;
+  visibility: hidden;
+}
+#sub1{
+  height: 0px;
+  visibility: hidden;
+}
+#sub2{
+  height: 0px;
+  visibility: hidden;
 }
 * {
             margin: -3px;
@@ -101,6 +102,14 @@
     float: right;
 }
 
+.sidebar{
+  width: 20%;
+  display: inline-block;
+  height: 100%;
+  background: #81c4eb  ;
+  transition: width 300ms;
+  position: fixed;
+}
 .sidebar-brand{
   height: 90px;
   padding: 1rem 0rem 1rem 2rem;
@@ -195,7 +204,9 @@ input[type=submit]:hover {
   display: block;
   padding: 1em;
   text-align: center;
- 
+  margin-left: 80px;
+  position: relative;
+  top: -40px;
 
 }
 
@@ -205,7 +216,7 @@ input[type=submit]:hover {
   border-radius: 0.5em;
   -webkit-box-shadow: 0px 1px 15px -2px white;
           box-shadow: 0px 1px 15px -2px white;
- margin-left: -70px;
+ margin-left: -30px;
  padding: 6px;
 }
 .info {
@@ -262,6 +273,7 @@ table {
 border: medium solid #6495ed;
 border-collapse: collapse;
 width: 85%;
+margin-left: 50px;
 }
 th {
 font-family: monospace;
@@ -283,6 +295,13 @@ caption {
 font-family: sans-serif;
 background-color:#637E80 ;
 }
+
+body {
+      background: url('img/background.jpeg');
+      min-height: 100%;
+
+    }
+
 
 </style>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -317,13 +336,27 @@ background-color:#637E80 ;
 
         });
     });
-    function sub(){
+  </script>
+
+    <script>
+     function sub(){
      document.getElementById("sub").style.visibility = "visible";
      document.getElementById("sub").style.height = "60px";
-
      }
 
-</script>     
+     function sub1(){
+     document.getElementById("sub1").style.visibility = "visible";
+     document.getElementById("sub1").style.height = "60px";
+     }
+
+     function sub2(){
+     document.getElementById("sub2").style.visibility = "visible";
+     document.getElementById("sub2").style.height = "60px";
+     }
+
+
+   </script>
+     
 
      <div class="sidebar">
     <div class="sidebar-brand">
@@ -333,29 +366,52 @@ background-color:#637E80 ;
     <div class="sidebar-menu">
       <ul>
         <li>
-          <a href="prf.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
+          <a href="profile_adm.php" ><span class="fa fa-home"></span><span>Accueil</span></a>
         </li>
         <li>
-          <a href="choix_add.php"><span class="fas fa-user-plus"></span><span>Ajout des utilisateurs</span></a>
+          <div class="idk" id="normal" >
+          <a href="#" onclick="sub()">
+            <span class="icon"><i class="fas fa-user-plus"></i></span>
+            <span class="title">Ajout des utilisateurs</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub' id="sub">
+           <li class="normal"><a href="add_etu.php">Etudiant</a></li>
+
+           <li class="normal"><a href="add_enc.php">Encadrant</a></li>
+          </ul>
         </li>
         <li>
-          <a href="create_grp.php"><span class="fas fa-users"></span>Former les groupes<span></span></a>
+          <div class="idk" id="normal" >
+          <a href="##"  onclick="sub1()">
+            <span class="icon"><i class="fas fa-paperclip"></i></span>
+             <span class="title" >Former les groupes</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub1' id="sub1">
+           <li class="normal"><a href="grp_etu.php">Etudiant</a></li>
+
+           <li class="normal"><a href="grp_jury.php">Jury</a></li>
+          </ul>
         </li>
 
-        <li>
-                    <div class="idk" id="normal" >
-                    <a href="#" onclick="sub()">
-                        <span class="icon"><i class="fas fa-paperclip"></i></span>
-                        <span class="title">Affecter les sujets</span>
-                        <span id="down" class="fas fa-caret-down"></span>
-                    </a>
-                    </div>
-                     <ul class='sub' id="sub">
-                     <li class="normal"><a href="affect_pfe.php">Automatiquement</a></li>
+    <li>
+          <div class="idk" id="normal" >
+          <a href="#"  onclick="sub2()">
+            <span class="icon"><i class="fas fa-paperclip"></i></span>
+             <span class="title" >Affecter les sujets</span>
+            <span id="down" class="fas fa-caret-down"></span>
+          </a>
+          </div>
+           <ul class='sub2' id="sub2">
+           <li class="normal"><a href="affect_pfe.php">Automatiquement</a></li>
 
-                     <li class="normal"><a href="affect_pfe_man.php">Manuellement</a></li>
-                    </ul>
-                </li>
+           <li class="normal"><a href="affect_pfe_man.php" >Manuellement</a></li>
+          </ul>
+        </li>
+
       
        <li class="normal">
                     <a href="gestion.php">
@@ -393,7 +449,7 @@ background-color:#637E80 ;
   <br><br><br><br>
  
      <div class="user-card">
-            <div class="user-card-info"><img class="user-img" width="150px" src="img/encad.png" ></div>
+            <div class="user-card-info"><img class="user-img" width="150px" src="img/adm.png" ></div>
   
   
 
@@ -407,8 +463,8 @@ background-color:#637E80 ;
                 echo "     <table id='les sujets'>
                                 <tr>
                                 <th></th>
-                                <th>sujets externes</th>
-                                 <th>description</th>
+                                <th>Sujets externes</th>
+                                 <th>Description</th>
                                 </tr>";	
                     while($row1 = $result->fetch_assoc()) 
                         { 
@@ -436,7 +492,7 @@ background-color:#637E80 ;
             <tr>
                 <th></th>
 
-                <th>encadrants</th>
+                <th>Encadrants</th>
             </tr>";
             while($row2 = $result1->fetch_assoc()) 
                 {
@@ -450,15 +506,15 @@ background-color:#637E80 ;
 
                             echo "</table>";
 
-                            echo "<input type='submit' name='affect' id='add' value='affecter le sujet à l encadrant'/>";
+                            echo "<input type='submit' name='affect' id='add' value='Affecter le sujet à l'encadrant/>";
         } else {
-                    echo "<h1>Tous Les encadrants ont des sujets</h1>";
+                    echo "<h1>Tous les encadrants ont des sujets</h1>";
                 }
               
                         
                 }
                 else{
-                    echo "<h1>il n y a aucun sujet externe pour l'instant</h1>";
+                    echo "<h1>Il n y a aucun sujet externe pour l'instant</h1>";
                 }
             
             }else 
