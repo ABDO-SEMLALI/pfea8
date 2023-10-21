@@ -61,7 +61,6 @@ section h1 {
   background-blend-mode: multiply;
 }
 
-
 .administrateur{
   background:url('img/adm.jpg') #C3D0D5;
   background-position: center;

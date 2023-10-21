@@ -130,6 +130,7 @@ CREATE TABLE `etudiant` (
 
 INSERT INTO `etudiant` (`id_etu`, `nom_complet`, `email_etu`, `password`, `id_groupe`, `id_pfe`, `nom_filliere`, `annee`) VALUES
 (12, 'chaimae', 'chaimaebahij4@gmail.com', '12345678', 1, 0, 'GTR', 2023),
+(17, 'ASH', 'abdelkarimsemlali67@gmail.com', '12345678', 1, 0, 'GTR', 2023),
 (13, 'rim', 'areski.rim@gmail.com', '87654321', 1, 0, 'GTR', 2023);
 
 -- --------------------------------------------------------

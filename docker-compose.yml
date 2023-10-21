@@ -4,7 +4,7 @@ services:
   db:
     build:
       context: ./sql
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
       MYSQL_DATABASE: pfe
@@ -16,7 +16,7 @@ services:
   web:
     build:
       context: ./php
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     container_name: php_web
     depends_on:
       - db

@@ -61,7 +61,7 @@
     }
 
     .encadrant {
-      background: url('img/stad1.png');
+      background: url('img/modif_enc.png');
       background-position: left;
       background-size: cover;
       background-blend-mode: multiply;
@@ -69,7 +69,7 @@
 
 
     .administrateur {
-      background: url('img/adm.png');
+      background: url('img/modif_adm.png');
       background-position: center;
       background-size: cover;
       background-blend-mode: multiply;
@@ -82,7 +82,7 @@
       background-blend-mode: multiply;
     }
     .proposition {
-      background: url('img/int.png');
+      background: url('img/modif_suj.png');
       background-position: center;
       background-size: cover;
       background-blend-mode: multiply;
